@@ -48,14 +48,14 @@ Comment = {MultilineComment} | {EOLComment}
 "*"                     { System.out.print(" * "); return symbol(sym.TIMES); }
 "/"                     { System.out.print(" / "); return symbol(sym.DIVIDE); }
 "%"                     { System.out.print(" % "); return symbol(sym.MODULO);}
-"<<"                    { System.out.print(" + "); return symbol(sym.SHIFTLEFT); }
-">>"                    { System.out.print(" + "); return symbol(sym.SHIFTRIGHT); }
+"<<"                    { System.out.print(" << "); return symbol(sym.SHIFTLEFT); }
+">>"                    { System.out.print(" >> "); return symbol(sym.SHIFTRIGHT); }
 "=="                    { System.out.print(" == "); return symbol(sym.EQEQ); }
 ">="                    { System.out.print(" >= "); return symbol(sym.GREATEQ); }
 "<="                    { System.out.print(" <= "); return symbol(sym.LESSEQ); }
 "<"                     { System.out.print(" < "); return symbol(sym.LESS); }
-">"                     { System.out.print(" + "); return symbol(sym.GREATER); }
-"="                     { System.out.print(" + "); return symbol(sym.EQ); }
+">"                     { System.out.print(" > "); return symbol(sym.GREATER); }
+"="                     { System.out.print(" = "); return symbol(sym.EQ); }
 "FOR"                   { System.out.print(" FOR "); return symbol(sym.FOR); }
 "DO"                    { System.out.print(" DO "); return symbol(sym.DO); }
 "IF"                    { System.out.print(" IF "); return symbol(sym.IF); }

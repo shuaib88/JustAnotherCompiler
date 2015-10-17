@@ -739,11 +739,11 @@ class Lexer implements java_cup.runtime.Scanner {
             }
           case 47: break;
           case 12: 
-            { System.out.print(" + "); return symbol(sym.GREATER);
+            { System.out.print(" > "); return symbol(sym.GREATER);
             }
           case 48: break;
           case 13: 
-            { System.out.print(" + "); return symbol(sym.EQ);
+            { System.out.print(" = "); return symbol(sym.EQ);
             }
           case 49: break;
           case 14: 
@@ -769,7 +769,7 @@ class Lexer implements java_cup.runtime.Scanner {
             }
           case 54: break;
           case 19: 
-            { System.out.print(" + "); return symbol(sym.SHIFTLEFT);
+            { System.out.print(" << "); return symbol(sym.SHIFTLEFT);
             }
           case 55: break;
           case 20: 
@@ -777,7 +777,7 @@ class Lexer implements java_cup.runtime.Scanner {
             }
           case 56: break;
           case 21: 
-            { System.out.print(" + "); return symbol(sym.SHIFTRIGHT);
+            { System.out.print(" >> "); return symbol(sym.SHIFTRIGHT);
             }
           case 57: break;
           case 22: 
