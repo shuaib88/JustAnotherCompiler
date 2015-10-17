@@ -1,0 +1,72 @@
+import java_cup.runtime.*;
+
+
+parser code {:
+  Lexer lexer;
+
+  public parser(Lexer lexer) {
+    this.lexer = lexer;
+  }
+
+  public void report_error(String message, Object info) {
+
+    StringBuffer m = new StringBuffer("Error");
+
+    if (info instanceof java_cup.runtime.Symbol) {
+
+      java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+
+      if (s.left >= 0) {
+
+        /* Add to the end of the StringBuffer error message the line number of
+           the error in the input. */
+        m.append(" in line "+(s.left+1));
+
+        /* Check if the column number in the input is greater or equal to
+           zero. */
+        if (s.right >= 0)
+
+          /* Add to the end of the StringBuffer error message the column number
+             of the error in the input. */
+          m.append(", column "+(s.right+1));
+        }
+    }
+
+    /* Add to the end of the StringBuffer error message created in this
+       method the message that was passed into this method. */
+    m.append(" : "+message);
+
+    /* Print the contents of the StringBuffer 'm', which contains an error
+       message out on a line. */
+    System.err.println(m);
+  }
+
+  /* Change the method report_fatal_error so when it reports a fatal error it
+     will display the line and column number of where the fatal error
+     occurred in the input as well as the reason for the fatal error which is
+     passed into the method in the object 'message' and then exit.*/
+  public void report_fatal_error(String message, Object info) {
+    report_error(message, info);
+    System.exit(1);
+    }
+:};
+
+/*  Return to Using CUP  */
+
+/* Use the scanner created with JFlex  */
+scan with {: return lexer.next_token(); :};
+
+
+terminal           SEMI, PLUS, MINUS, TIMES, DIVIDE, MODULO, SHIFTLEFT, SHIFTRIGHT,
+                   EQ, EQEQ, NOTEQ, GREATEQ, LESSEQ, GREATER, LESS, FOR, WHILE, DO,
+                   RETURN, IF, ELSE, RPARENS, LPARENS, LBRACE, RBRACE;
+terminal Integer   CONSTINT;
+terminal String    CONSTSTRING;
+terminal Extern    EXTERN;
+terminal Identifier IDENT;
+
+non terminal       program, declaration;
+
+program                 ::=   program declaration
+                          | /* Empty */
+                          ;
