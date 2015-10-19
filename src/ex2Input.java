@@ -4,7 +4,7 @@ public class ex2Input {
     public static void main(String[] args) {
         try {
             Reader r = new BufferedReader(new FileReader("./src/source.txt"));
-            Lexer lexx = new Lexer(r);
+            ex2Lexer lexx = new ex2Lexer(r);
             while (true){
                 java_cup.runtime.Symbol next = lexx.next_token();
                 if (next.sym == 0){

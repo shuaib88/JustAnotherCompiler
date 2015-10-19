@@ -43,7 +43,7 @@ Comment = {MultilineComment} | {EOLComment}
 %%
 <YYINITIAL> {
 "+"                     { System.out.print(" + "); return symbol(sym.PLUS); }
-";"                     { return symbol(sym.SEMI); }
+";"                     { System.out.print(" ; "); return symbol(sym.SEMI); }
 "-"                     { System.out.print(" - "); return symbol(sym.MINUS); }
 "*"                     { System.out.print(" * "); return symbol(sym.TIMES); }
 "/"                     { System.out.print(" / "); return symbol(sym.DIVIDE); }

@@ -32,11 +32,13 @@ private boolean EncounteredComma = false;
 
 LineTerminator = \r|\n|\r\n
 WhiteSpace     = {LineTerminator} | [ \t\f]
+
 DecIntegerLiteral = 0 | [1-9][0-9]*
 Ident = [A-Za-z_][A-Za-z_0-9]*
 InputCharacter = [^\r\n]
 
 IgnoreMacroLine = "#" {InputCharacter}* {LineTerminator}?
+
 MultilineComment = "/*" [^*] ~"*/"
 EOLComment = "//" {InputCharacter}* {LineTerminator}?
 Comment = {MultilineComment} | {EOLComment} | {IgnoreMacroLine}

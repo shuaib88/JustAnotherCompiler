@@ -723,7 +723,7 @@ class Lexer implements java_cup.runtime.Scanner {
             }
           case 43: break;
           case 8: 
-            { return symbol(sym.SEMI);
+            { System.out.print(" ; "); return symbol(sym.SEMI);
             }
           case 44: break;
           case 9: 
