@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Input {
+public class ex2Input {
     public static void main(String[] args) {
         try {
             Reader r = new BufferedReader(new FileReader("./src/source.txt"));
